@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <div class="main">
+    <div class="form">
+      <form action="/submit" method="post">
+        <div class="input-group">
+          <input type="text" id="username" name="title" required>
+          <textarea id="message" style="resize:none" name="details" required></textarea>
+        
+        </div>
+        <button type="submit">create task</button>
+        <div class="content">
+        <% if(files.length>0){ %>
+        <% files.forEach(function(val){ %>
+            
+          <div class="box" >
+            <h1><%= val%></h1>
+          <p><%= val%>  </p>
+          <a href="#">read more..</a>
+          <!-- </div>
+           <div class="box">
+            <h1>something there</h1>
+          <p>Lorem, ipsum dolor sit amet  </p>
+          <a href="#">read more..</a>
+          </div>
+           <div class="box">
+            <h1>something there</h1>
+          <p>Lorem, ipsum dolor sit amet  </p>
+          <a href="#">read more..</a>
+          </div>
+           <div class="box">
+            <h1>something there</h1>
+          <p>Lorem, ipsum dolor sit amet  </p>
+          <a href="#">read more..</a> -->
+          </div>
+        <% }) %>
+        <%} else{ %>
+ <h1>no task</h1>
+        <% } %>
+        </div>
+       
+         
+          
+        </div>
+    </div>
+ 
+</body>
+</html>

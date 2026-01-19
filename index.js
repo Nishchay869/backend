@@ -31,8 +31,15 @@ app.post('/submit', function(req, res) {
     res.redirect("/");
   });
 });
-
-
+app.get('/edit/:filename',function(req,res){
+  res.render("edit",{previous:req.params.filename});
+})
+app.post('/rename',function(req,res){
+  fs.rename(`./files/${req.body.previous}`,`./files/${req.body.new}`,function(err){
+   
+    res.redirect("/")
+  })
+})
 app.listen(3000,()=>{
   console.log("server is running on port 3000");
 })

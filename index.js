@@ -15,6 +15,11 @@ app.get('/',function(req,res){
     res.render("index", { files: files });
   })
 });
+app.get('/files/:filename',function(req,res){
+  fs.readFile(`./files/${req.params.filename}`,"utf-8",function(err,filedata){
+    res.render('shop',{filename:req.params.filename , filedata:filedata});
+  })
+})
 app.post('/submit', function(req, res) {
   const filename = req.body.title.split(' ').join('') + '.txt';
   fs.writeFile(`./files/${filename}`, req.body.details, function(err) {
@@ -26,6 +31,7 @@ app.post('/submit', function(req, res) {
     res.redirect("/");
   });
 });
+
 
 app.listen(3000,()=>{
   console.log("server is running on port 3000");
